@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import querystring from 'querystring'
+import * as querystring from 'query-string'
 import fetch from 'node-fetch'
 const { DiscordClientID, DiscordSecret, DiscordRedirectURI } = process.env
 
