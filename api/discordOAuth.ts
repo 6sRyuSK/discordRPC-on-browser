@@ -8,11 +8,11 @@ export const handler = async(event) => {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
   const params = querystring.parse(event.body)
+  console.log(event.body)
   if(!params.code) {
     return { statusCode: 400, body: 'code is null' }
   }
   const code = params.code
-  console.log(code, '--------', params)
   const body = {
     client_id: DiscordClientID,
     client_scret: DiscordSecret,
