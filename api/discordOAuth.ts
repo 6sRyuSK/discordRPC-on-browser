@@ -22,9 +22,14 @@ export const handler = async(event) => {
     scope: 'rpc',
   }
 
-  return await fetch('https://discord.com/api/oauth2/token', {
+  const result = await fetch('https://discord.com/api/oauth2/token', {
     method: 'POST',
     header: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify(body),
-  }).then(result => result.json())
+  }).then(result => {
+    console.log(result)
+    return result.json()
+  })
+
+  return result
 }
