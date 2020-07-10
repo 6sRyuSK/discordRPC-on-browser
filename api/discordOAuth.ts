@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import * as querystring from 'query-string'
+// import * as querystring from 'query-string'
 import fetch from 'node-fetch'
 const { DiscordClientID, DiscordSecret, DiscordRedirectURI } = process.env
 
@@ -7,8 +7,8 @@ export const handler = async(event) => {
   if(event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
-  const params = querystring.parse(event.body)
-  console.log(event.body)
+  const params = JSON.parse(event.body)
+  console.log(params, params.code)
   if(!params.code) {
     return { statusCode: 400, body: 'code is null' }
   }
