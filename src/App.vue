@@ -23,10 +23,12 @@ export default class App extends Vue {
 
   createRpcClient () {
     const client = new discordRPC.Client({ transport: 'websocket' })
+    const clientId = '730968152514756759'
+    const scopes = ['rpc', 'rpc.api', 'messages.read']
     client.on('ready', () => {
       console.log('Logged in as ', client.application.name)
     })
-    client.connect('730968152514756759')
+    client.login({ clientId, scopes })
   }
 }
 </script>
