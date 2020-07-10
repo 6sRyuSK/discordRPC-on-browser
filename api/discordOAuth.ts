@@ -8,6 +8,7 @@ export const handler = async(event) => {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
   const params = querystring.parse(event.body)
+  console.log(params, event.body)
   if(!params.code) {
     return { statusCode: 400, body: 'code is null' }
   }
