@@ -12,16 +12,16 @@ import discordRPC from 'discord-rpc'
 
 @Component({
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+  },
 })
 export default class App extends Vue {
-  created () {
+  created() {
     console.log('hello')
     this.createRpcClient()
   }
 
-  createRpcClient () {
+  createRpcClient() {
     const client = new discordRPC.Client({ transport: 'websocket' })
     const clientId = '730968152514756759'
     const scopes = ['rpc', 'rpc.api', 'messages.read']
