@@ -8,13 +8,27 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import HelloWorld from './components/HelloWorld.vue'
+import discordRPC from 'discord-rpc'
 
 @Component({
   components: {
     HelloWorld
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  created () {
+    console.log('hello')
+    this.createRpcClient()
+  }
+
+  createRpcClient () {
+    const client = new discordRPC.Client({ transport: 'websocket' })
+    client.on('ready', () => {
+      console.log('Logged in as ', client.application.name)
+    })
+    client.connect('730968152514756759')
+  }
+}
 </script>
 
 <style>
